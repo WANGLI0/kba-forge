@@ -34,26 +34,36 @@ A Joule Work Desktop skill for creating, updating, and reviewing SAP Knowledge B
 
 ## Updating to the latest version
 
-**If you installed from this repo (Option B above):**
+> **Important**: `git pull` only updates your local repo files. It does NOT automatically update the skill inside Joule. You must complete all three steps below.
 
-> **Important**: `git pull` only updates your local repo files. It does NOT automatically update the skill inside Joule. You must complete both steps below.
+**Step 1 — Check if you have already cloned the repo**
 
-**Step 1 — Pull the latest files from GitHub**
+Run in PowerShell:
+```powershell
+Test-Path C:\Users\<your-username>\kba-forge
+```
+- Returns `True` → proceed to Step 2
+- Returns `False` → clone first:
+  ```powershell
+  git clone https://github.com/WANGLI0/kba-forge.git C:\Users\<your-username>\kba-forge
+  ```
+
+**Step 2 — Pull the latest files from GitHub**
 
 ```powershell
 cd C:\Users\<your-username>\kba-forge
 git pull origin main
 ```
 
-**Step 2 — Reinstall the skill into Joule**
+**Step 3 — Reinstall the skill into Joule**
 
 Open Joule Work Desktop and type in the chat box:
 ```
 请帮我安装这个 skill：C:\Users\<your-username>\kba-forge\skills\kba-forge
 ```
-Replace `<your-username>` with your Windows username. Click **Confirm**.
+Replace `<your-username>` with your Windows username (e.g. `JohnDoe`). Click **Confirm**.
 
-Joule will read the updated files from your local repo and overwrite the existing skill installation. Both steps are required every time you update.
+Joule will read the updated files from your local repo and overwrite the existing skill installation. Steps 2 and 3 are both required every time you update.
 
 **Changelog**
 
